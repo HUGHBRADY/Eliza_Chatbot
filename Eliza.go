@@ -5,9 +5,16 @@ import (
 	"net/http"
 )
 
+func elizaBrain(userInput string) string {
+	return "how now brown cow"
+}
+
 func userinputhandler(w http.ResponseWriter, r *http.Request) {
 	userInput := r.URL.Query().Get("user-input")
-	fmt.Fprintf(w, userInput)
+	// pass user input into Eliza's brain
+	resp := elizaBrain(userInput)
+	 
+	fmt.Fprintf(w, resp)
 }
 
 func main() {
@@ -15,7 +22,7 @@ func main() {
 	// Adapted from: http://www.alexedwards.net/blog/serving-static-sites-with-go
 	fs := http.FileServer(http.Dir("static"))
 	http.Handle("/", fs)
-	http.HandleFunc("/chat",userinputhandler)
+	http.HandleFunc("/chat", userinputhandler)
 
 	//http.HandleFunc("/user-input", userinputhandler)
 	http.ListenAndServe(":8080", nil)

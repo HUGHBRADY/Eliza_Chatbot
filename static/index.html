@@ -11,7 +11,6 @@
     </head>
 
     <body>
-
         <div class="container">
                 <h1>Eliza Chatbot!</h1>
         </div>
@@ -30,38 +29,45 @@
             </form>
         </div>
 
+        <!-- jQuery import -->
         <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
 
         <script>
-            const conversation = $("#output");
-            const user = $("#user-input");
+            const conversation = $("#output");          // <-- what appears in the output box
+            const user = $("#user-input");              // <-- what the user entered
             
+            // We enter this function whenever user types a character into the form
             user.keypress(function(e){
+                // If the key entered is not Enter, the function will keep going 
+                // Otherwise the function will continue
                 if(e.keyCode != 13){
                    return;
                 }
 
-                // stop page from refreshing
-                e.preventDefault();
+                e.preventDefault();                     // Stops page from refreshing
 
-                const input = user.val();
-                user.val(" ");
+                const input = user.val();               // <-- assigns what's typed into the constant input
+                user.val(" ");                          // empties the input box after you hit enter
 
+                // displays the user's input in the conversation box
                 conversation.append("<li class='list-group-item text-left list-group-item-success'>" + "User: " + input + " </li>");
 
+                // used for passing input into go code
                 const queryParams = {"user-input" : input}
 
+                // calls the Eliza /chat handler 
                 $.get("/chat", queryParams)
     
                     .done(function(resp){
                         setTimeout(function(){
-                        
+                            // displays the bot's response in the conversation box
                             conversation.append("<li class='list-group-item text-left list-group-item-success'>" + "Bot: " + resp + " </li>");
-                           $("html, body").scrollTop($("body").height());
+                            // moves the view of the page in line with new entries into the conversation
+                            $("html, body").scrollTop($("body").height());
                         }, 2000); //set timeout for a delay between user input and bot response
                     }).fail(function(){
-                        conversation.append("<li class='list-group-item text-left list-group-item-success'>" + "Bot: " + resp + " </li>");
-                    });
+                        conversation.append("<li class='list-group-item text-left list-group-item-success'>" + "Bot: Sorry but there's something wrong with my code" + "</li>");
+                });
             })
         </script>
 
