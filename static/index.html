@@ -1,52 +1,70 @@
 <!DOCTYPE html>
+
 <html>
     <head>
-        <meta charset="utf-8">
-        <meta name="viewport">
-        <title>Eliza Chatbot</title>
-        <html lang="en"></html>
+      <!-- Required meta tags -->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+      <!-- Bootstrap CSS -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     </head>
 
-    <!-- Imports -->
-    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
-
     <body>
-        <h2 class="header">Eliza Chatbot</h2>
 
-        <div class="chatBox">
-            <div>
-                <p id="elizaOutput"></p>
-            </div>
+        <div class="container">
+                <h1>Eliza Chatbot!</h1>
+        </div>
 
-            <form>
-                <input id="userInput" class="inputBox"></input>
+        <div class="container">
+            <form id="chatbox">
+                <!-- ELIZA OUTPUT -->
+                <div class="form-group">
+                    <ul id="output"></ul>
+                </div>
+        
+                <!-- USER INPUT -->
+                <div class="form-group">
+                  <input type="text" class="form-control" id="user-input" placeholder="Say hi!">
+                </div>
             </form>
         </div>
 
-    </body>
+        <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
 
+        <script>
+            const conversation = $("#output");
+            const user = $("#user-input");
+            
+            user.keypress(function(e){
+                if(e.keyCode != 13){
+                   return;
+                }
+
+                // stop page from refreshing
+                e.preventDefault();
+
+                const input = user.val();
+                user.val(" ");
+
+                conversation.append("<li class='list-group-item text-left list-group-item-success'>" + "User: " + input + " </li>");
+
+                const queryParams = {"user-input" : input}
+
+                $.get("/chat", queryParams)
+    
+                    .done(function(resp){
+                        setTimeout(function(){
+                        
+                            conversation.append("<li class='list-group-item text-left list-group-item-success'>" + "Bot: " + resp + " </li>");
+                           $("html, body").scrollTop($("body").height());
+                        }, 2000); //set timeout for a delay between user input and bot response
+                    }).fail(function(){
+                        conversation.append("<li class='list-group-item text-left list-group-item-success'>" + "Bot: " + resp + " </li>");
+                    });
+            })
+
+        </script>
+
+    </body>        
 </html>
-
-<script>
-    // Input and output variables
-    const inPrint = $("#userInput");
-    const ouPrint = $("#elizaOutput");
-
-    // Jquery keypress for user input
-    inputText.keypress(function(e){
-        // keeps going until you press the "enter" key
-        if(e.keyCode != 13){
-            return;
-        }
-
-        // stop page from refreshing
-        e.preventDefault();
-
-        // fill in userInput with inputText, then wipe it
-        const userInput = inputText.val();
-        inputText.val("");
-
-        list.append("<li>User: " + inPrint + "</li>");
-    }
-
-</script>

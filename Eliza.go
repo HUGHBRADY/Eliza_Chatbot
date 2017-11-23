@@ -1,33 +1,22 @@
-// Eliza Chatbot by Hugh Brady 2017
-
 package main
 
 import (
-	"math/rand"
-	"time"
 	"fmt"
-	"regexp"
-	"strings"
+	"net/http"
 )
 
-func elizaResponse(input string) string {
-
-	// Array of strings 
-	responses := []string{
-		"Why do you say that?",
-		"I’m not sure what you’re trying to say. Could you explain it to me?",
-		"How does that make you feel?",
-		"Why do you say that?",
-	}
-	
-	return responses[rand.Intn(len(responses))]
+func userinputhandler(w http.ResponseWriter, r *http.Request) {
+	userInput := r.URL.Query().Get("user-input")
+	fmt.Fprintf(w, userInput)
 }
 
 func main() {
-	dir := http.Dir("webpage")
-	fs := http.FileServer(http.Dir(dir)
 
+	// Adapted from: http://www.alexedwards.net/blog/serving-static-sites-with-go
+	fs := http.FileServer(http.Dir("static"))
 	http.Handle("/", fs)
-	http.HandleFunc("/user-input", inputHandler)
+	http.HandleFunc("/chat",userinputhandler)
+
+	//http.HandleFunc("/user-input", userinputhandler)
 	http.ListenAndServe(":8080", nil)
 }
