@@ -1,6 +1,8 @@
+
 # This file contains Eliza's responses.
 # It is based on the implementation here:
 #    http://www.jezuk.co.uk/cgi-bin/view/software/eliza
+#  and adapted from https://github.com/data-representation/eliza
 #
 # All lines that begin with a hash symbol are comments, and are ignored.
 #
@@ -22,12 +24,12 @@
 # e.g. I need help.
 (?i)^\s*I need ([^.!?]*)[.!?]*\s*$
 Why do you need $1?
-Would it really help you to get $1?
+$1? What do I care?
 I can get you $1, I just need a hotdog, 20 gold pieces and your first born son. Deal?
 
 # e.g. Why don't you answer me?
 (?i)^\s*Why don'?t you ([^.!?]*)[.!?\s]*$
-I'm trying. Would it kill you to be more understanding?
+Hell's horses, I'm trying! Would it kill you to be more understanding?
 Perhaps eventually I will $1.
 Do you really want me to $1?
 
@@ -53,13 +55,21 @@ How does being $1 make you feel?
 Do you enjoy being $1?
 Why do you say that you're $1?
 Why do you think you're $1?
+Hell's horses! I don't care right now, I need help untying my shoelaces!
 
 # e.g. Are you a psychiatrist?
 (?i)^\s*Are you\b([^.!?]*)[.!?\s]*$
-Why does it matter whether I am $1?
-Would you prefer it if I were not $1?
-Perhaps you believe I am $1.
-I may be $1 -- what do you think?
+Oh most assuredly not. 
+Don't throw such accusations around!
+
+
+
+(?i)^\s*What day is it([^.!?]*)[.!?\s]*$
+It is Wednesday my dude.
+
+(?i)^\s*What is([^.!?]*)[.!?\s]*$
+How would I know?
+Oh who cares?
 
 # e.g. What day is it?
 (?i)^\s*What ([^.!?]*)[.!?\s]*$
@@ -76,27 +86,31 @@ What is it you're really asking?
 # e.g. Because I'm young.
 (?i)^\s*Because ([^.!?]*)[.!?\s]*$
 Is that the real reason?
-What other reasons come to mind?
+I don't believe you.
+How much $1 are we talking here?
 Does that reason apply to anything else?
 If $1, what else must be true?
 
 # e.g. If I offended you, I'm sorry.
 (?i)^.*\bsorry\b.*$
-There are many times when no apology is needed.
+Sorry, eh? I'll just show you how sorry I can be!
+There are many times when no apology is needed. This is not one of them.
 What feelings do you have when you apologize?
 
-# e.g. Hello Eliza!
+# e.g. Hello Douglas!
 (?i)^\s*Hello.*$
 Hello, I'm glad we have a chance to chat.
 Hi there, how are you today?
 Hello, how are you feeling today?
-Alright, mate?
+Greetings, good stranger!
 
 # e.g. I think I'm lonely
 (?i)^\s*I think ([^.!?]*)[.!?\s]*$
 Do you doubt $1?
 Do you really think so?
+I agree with you wholeheartedly.
 But you're not sure $1?
+I think I'm hungry.
 
 # e.g. My friend isn't helpful
 (?i)^.*friend.*$
@@ -113,13 +127,10 @@ That's good news.
 
 # e.g. No
 (?i)^\s*No\s*$
-Why not?
+C'mon, be game!
 Curse you!
 Fair enough.
-Oh well.
-That's a shame.
-That's fantastic!
-
+Damn it I'll fire you!
 # e.g. Well
 (?i)^\s*Well\s*$
 What are you, Irish?
@@ -161,6 +172,7 @@ Why do you think I am $1?
 Does it please you to think that I'm $1?
 Perhaps you would like me to be $1.
 Perhaps you're really talking about yourself?
+
 Why do you say I am $1?
 Why do you think I am $1?
 Are we talking about you, or me?
@@ -209,6 +221,8 @@ Would you like there to be $1?
 I see, your $1. Why, I wonder?
 Why do you say that your $1?
 When your $1, how do you feel?
+Do you mean the rumours that I killed my wife?
+
 
 # e.g. You don't answer my questions
 (?i)^\s*You ([^.!?]*)[.!?\s]*$
@@ -241,7 +255,7 @@ Good family relations are important.
 Tell me more about your father.
 How did your father make you feel?
 How do you feel about your father?
-Does your relationship with your father relate to your feelings today?
+Ffffaaaaaaaaattttttthhhhheeeeerrrrrr!!
 Do you have trouble showing affection with your family?
 
 # e.g. I had a tough childhood.
@@ -265,11 +279,33 @@ Please consider whether you can answer your own question.
 Perhaps the answer lies within yourself?
 Why don't you tell me?
 
+
+# e.g. I need space.
+(?i)^.*\bspace\b.*$
+Space! What is it? No one truly knows. Except me.
+What, like personal space? I don't believe in that concept myself.
+
+# e.g. Do you have a hobby?
+(?i)^.*\bhobby\b.*$
+One of my hobbies is charicature. I like to sketch people as I talk to them.
+Bowling. You?
+I am a keen and acomplished trail hiker.
+I like watching tv and eating buttered popcorn.
+
+# e.g. I love my family.
+(?i)^.*\blove\b.*
+Hahaha! No, no, I think you're playing games with me!
+You broke my heart. You broke it!
+
+
 # e.g. Anything else.
 ^([^.!?]*)[.!?]?.*$
 Please tell me more.
 Let's change focus a bit... Tell me about your family.
-Can you elaborate on that?
+Sing, you canary.
+Sing, you canary.
+Sing, you canary.
+Sing, you canary.
 Why do you say that $1?
 I see.
 Very interesting.

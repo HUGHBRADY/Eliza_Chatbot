@@ -29,11 +29,11 @@ user.keypress(function(e){
         .done(function(resp){
             setTimeout(function(){
                 // displays the bot's response in the conversation box
-                conversation.append("<li class='list-group-item text-left list-group-item-success'>" + "Bot: " + resp + " </li>");
+                conversation.append("<li class='list-group-item text-left list-group-item-success'>" + "Douglas: " + resp + " </li>");
                 // moves the view of the page in line with new entries into the conversation
                 $("html, body").scrollTop($("body").height());
             }, 1500); //set timeout for a delay between user input and bot response
         }).fail(function(){
-            conversation.append("<li class='list-group-item text-left list-group-item-success'>" + "Bot: Sorry but there's something wrong with my code" + "</li>");
+            conversation.append("<li class='list-group-item text-left list-group-item-success'>" + "Douglas: Sorry but there's something wrong with my code" + "</li>");
     });
 })

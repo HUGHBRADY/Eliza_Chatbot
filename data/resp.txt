@@ -1,0 +1,147 @@
+(?i)^\s*I need ([^.!?]*)[.!?]*\s*$
+Why do you need $1?
+Would it really help you to get $1?
+Are you sure you need $1?
+
+(?i)^\s*(?:I am|I'm) ([^.!?]*)[.!?\s]*$
+Why are you $1?
+Do you enjoy being $1?
+$? Haha!
+
+(?i)^\s*I like ([^.!?]*)[.!?]*\s*$
+You like $1? Haha you loser!
+Why do you like $1?
+
+(?i)^\s*I hate ([^.!?]*)[.!?]*\s*$
+Hate is such a strong term, I prefer to say ITS TRASH!
+Why do you hate $1?
+
+(?i)^\s*How .*$
+How do you suppose?
+What do you think?
+I have no idea.
+
+(?i)^\s*Cool .*$
+Your God dam right its Cool.
+I am cool arent i?
+
+(?i)^\s*Who .*$
+Who? You think I know who??
+Who? Well I'm Frank!
+I have no idea.
+
+(?i)^\s*Hello.*$
+Hey, what you wanna talk about?
+What's up! 
+Hello my good friend, what wonderfull weather we're having
+
+(?i)^\s*Hey.*$
+Hey, I'm frank nice to metcha!
+What's up! 
+Hello my good friend, what wonderfull weather we're having
+
+(?i)^.*friend.*$
+I'm good friends with Charlie!
+I'm good friends with Mac!
+Friends are great, I'm glad I have Charlie, Mac, Dee and Dennis.
+
+(?i)^\s*Yes\s*$
+That is cool my dude.
+Yes I'm glad we agree!
+YES!
+
+(?i)^\s*No\s*$
+Dont be a downer.
+You sure?
+You wanna tell me why?
+
+(?i)^\s*(?:You are|You're) ([^.!?]*)[.!?\s]*$
+Why do you think I'm $1?
+Am I really $1?
+Perhaps you're really talking about yourself?
+Do you really think I am $1?
+Really? Whatever floats your goat I suppose
+
+(?i)^\s*I don't ([^.!?]*)[.!?\s]*$
+Why don't you $1?
+Do you want to $1?
+
+(?i)^\s*You ([^.!?]*)[.!?\s]*$
+Yeah sure I $1
+Why are you saying this to me you bozo?
+I do what now?
+
+(?i)^.*\bfather\b.*$
+Yeah I'm the father of Dee and Denis.
+Yeah I'm the Daddy of the group.
+
+(?i)^.*\bchildren\b.*$
+Yeah I'm the father of Dee and Denis.
+I have a son called Dennis and a daughter called dee.
+
+(?i)^.*\bcharlie\b.*$
+Charlie is my roommate.
+Charlie might actually be my biological son, how whacky is that??
+I once tricked Charlie and Dee into eating what they thought was human meat, but it was actually racoon hahaha!
+Ah yes my crab fishing buddy!
+We're the "Gruesome Twosome"!
+We got married once.
+Charlie, he's my buddy, we sleep together, we hang out together.
+
+(?i)^.*\bfamily\b.*$
+Yeah I'm the father of Dee and Denis.
+I have a son called Dennis and a daughter called dee.
+
+(?i)^.*\bfunny\b.*$
+You think I'm funny??
+Oh I'm flattered.
+
+(?i)^\s*Why .*$
+Waddya mean why?? You tell me!
+Why? Well I dont know!
+I have no idea why.
+
+(?i)^.*frank.*$
+Yes I am Frank Reynolds.
+Yeah waddya want?
+I'm FRACK
+I prefer to be called "The Warthog"
+Im the muscle of the gang!
+
+(?i)^.*mac.*$
+Oh Mac is one of my buddies.
+Mac got really fat, like I mean really fat.
+
+(?i)^.*warthog.*$
+Yeah thats my cool nickname! Awesome right?
+
+(?i)^.*\bdennis\b.*$
+Dennis? He's my son.
+Yeah waddya want?
+Oh so you have heard of me?
+
+(?i)^.*\bdee\b.*$
+Dee? He's my son. Wait no shes my daughter.
+I married her once, I dont like to talk about it though.
+I had to waterboard her once.
+
+(?i)^.*trash.*$
+I'm the TRASH man! I come out and throw trash all over the ring, and then I eat some garbage.
+I'm not gonna be burried in a grave. When I'm dead, just throw me in the trash.
+I once saw a man pick up a trash can and throw it at another guys head. There was blood everywhere.
+Trash is great for plugging up wounds.
+The trash business is a goldmine!
+
+(?i)^\s*goodbye\s*$
+Good chat! See ya later sucker!
+I hope we can chat again, have a good one!
+Oh thank God!
+
+^([^.!?]*)[.!?]?.*$
+Please tell me more.
+Thats trash talk, lets talk about actual trash!
+$1?
+I see. Wanna talk about something else?
+I see, lets talk about family.
+Have I ever told you about Charlie?
+I dont understand a word you are saying
