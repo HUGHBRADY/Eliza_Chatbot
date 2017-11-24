@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+<!-- ========= Eliza Chatbot Project =========
+     ========= Hugh Brady  G00338260 ========= -->
 
 <html>
     <head>
@@ -8,11 +10,23 @@
 
       <!-- Bootstrap CSS -->
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+        
+      <style>
+            body  {
+                background-image: url("bg.jpg");
+                background-size:     cover;   
+                background-attachment: fixed;    
+            }
+            .form-group {
+                opacity: 0.7
+            }
+        </style>
     </head>
 
     <body>
+                
         <div class="container">
-                <h1>Eliza Chatbot!</h1>
+                <h1>Chatbot with Douglas Reynholm!</h1>
         </div>
 
         <div class="container">
@@ -29,47 +43,9 @@
             </form>
         </div>
 
-        <!-- jQuery import -->
+        <!-- jQuery and local js file imports -->
         <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
-
-        <script>
-            const conversation = $("#output");          // <-- what appears in the output box
-            const user = $("#user-input");              // <-- what the user entered
-            
-            // We enter this function whenever user types a character into the form
-            user.keypress(function(e){
-                // If the key entered is not Enter, the function will keep going 
-                // Otherwise the function will continue
-                if(e.keyCode != 13){
-                   return;
-                }
-
-                e.preventDefault();                     // Stops page from refreshing
-
-                const input = user.val();               // <-- assigns what's typed into the constant input
-                user.val(" ");                          // empties the input box after you hit enter
-
-                // displays the user's input in the conversation box
-                conversation.append("<li class='list-group-item text-left list-group-item-success'>" + "User: " + input + " </li>");
-
-                // used for passing input into go code
-                const queryParams = {"user-input" : input}
-
-                // calls the Eliza /chat handler 
-                $.get("/chat", queryParams)
-    
-                    .done(function(resp){
-                        setTimeout(function(){
-                            // displays the bot's response in the conversation box
-                            conversation.append("<li class='list-group-item text-left list-group-item-success'>" + "Bot: " + resp + " </li>");
-                            // moves the view of the page in line with new entries into the conversation
-                            $("html, body").scrollTop($("body").height());
-                        }, 2000); //set timeout for a delay between user input and bot response
-                    }).fail(function(){
-                        conversation.append("<li class='list-group-item text-left list-group-item-success'>" + "Bot: Sorry but there's something wrong with my code" + "</li>");
-                });
-            })
-        </script>
+        <script src="script.js"></script>
 
     </body>        
 </html>
